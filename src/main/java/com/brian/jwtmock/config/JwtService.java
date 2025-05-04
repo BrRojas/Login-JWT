@@ -1,4 +1,4 @@
-package com.brian.jwtmock.config.;
+package com.brian.jwtmock.config;
 
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.io.Decoders;
@@ -6,8 +6,6 @@ import io.jsonwebtoken.security.Keys;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
-import io.jsonwebtoken.security.Keys;
-import io.jsonwebtoken.JwtParserBuilder; // 🔹 importante para el parser
 import io.jsonwebtoken.Jwts;
 
 
