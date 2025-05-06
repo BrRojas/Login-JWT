@@ -1,21 +1,22 @@
 package com.brian.jwtmock.repository;
 
 import com.brian.jwtmock.model.User;
-import org.springframework.stereotype.Service;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-@Service
+@Repository
 public class UserRepositoryMock {
 
     private final List<User> users = new ArrayList<>();
 
-    public UserRepositoryMock() {
-        // Usuarios mockeados en memoria
-        users.add(new User("admin", "admin1234"));
-        users.add(new User("brian", "password123"));
+    public UserRepositoryMock(PasswordEncoder passwordEncoder) {
+        // Usuarios mockeados con contraseña encriptada
+        users.add(new User("admin", passwordEncoder.encode("admin1234")));
+        users.add(new User("brian", passwordEncoder.encode("password123")));
     }
 
     public Optional<User> findByUsername(String username) {
@@ -28,5 +29,6 @@ public class UserRepositoryMock {
         users.add(user);
     }
 }
+
 
 
